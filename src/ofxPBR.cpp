@@ -6,7 +6,7 @@ ofxPBR::ofxPBR(){
 void ofxPBR::setup(int depthMapResolution) {
 	sphereMesh = ofSpherePrimitive(1, 100).getMesh();
 	for (int i = 0; i<sphereMesh.getNormals().size(); i++) {
-		sphereMesh.setNormal(i, ofVec3f(1.0, 1.0, -1.0) * sphereMesh.getVertex(i).normalize());
+		sphereMesh.setNormal(i, glm::vec3(1.0, 1.0, -1.0) * glm::normalize(sphereMesh.getVertex(i)));
 	}
 	shadow.setup(depthMapResolution);
 	depthMapMode = false;
